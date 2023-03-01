@@ -9,7 +9,7 @@ public interface NotaServices {
 
     public Nota findById(int id);
 
-    public List<Nota> findByTituloOrFecha(String titulo, String fecha);
+    public List<Nota> findByTituloOrFecha(String titulo, Date fecha);
 
     public Nota save(Nota nota);
 

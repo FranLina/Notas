@@ -1,5 +1,6 @@
 package com.flb.notas.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class NotaController {
 
     @RequestMapping("/notas/buscar")
     List<Nota> findByTitulo(@RequestParam String titulo,
-            @RequestParam @DateTimeFormat(pattern = "dd/MM/yyyy") String fecha) {
+            @RequestParam @DateTimeFormat(pattern = "dd/MM/yyyy") Date fecha) {
         return nService.findByTituloOrFecha(titulo, fecha);
     }
 

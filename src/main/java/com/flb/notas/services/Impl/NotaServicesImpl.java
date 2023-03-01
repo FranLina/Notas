@@ -1,8 +1,6 @@
 package com.flb.notas.services.Impl;
 
 import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,16 +54,10 @@ public class NotaServicesImpl implements NotaServices {
     }
 
     @Override
-    public List<Nota> findByTituloOrFecha(String titulo, String fecha) {
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        Date fechaD;
-        try {
-            fechaD = formato.parse(fecha);
-            return nRepository.findByTitulo(titulo, fechaD);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<Nota> findByTituloOrFecha(String titulo, Date fecha) {
+
+        return nRepository.findByTituloContainingAndFechaGreaterThan(titulo, fecha);
+
     }
 
 }

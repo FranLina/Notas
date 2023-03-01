@@ -15,14 +15,14 @@ public class Nota {
     @GeneratedValue
     private int id;
 
-    @Column(length = 1000)
+    @Column(length = 1000, nullable = false)
     private String titulo;
 
     @Column(nullable = true)
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/mm/yyyy")
     private Date fecha;
 
-    @Column(length = 1000)
+    @Column(length = 1000, nullable = false)
     private String descripcion;
 
     public Nota() {
